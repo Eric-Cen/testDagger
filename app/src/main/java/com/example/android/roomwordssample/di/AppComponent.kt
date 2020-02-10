@@ -14,7 +14,7 @@ interface AppComponent {
     @Component.Factory
     interface Factory{
         // With @BindsInstance, the Context passed in will be available in the graph
-        fun create(storageModule: StorageModule, @BindsInstance context : Context): AppComponent
+        fun create(@BindsInstance context : Context): AppComponent
     }
 
     // Class that can be injected by this Component

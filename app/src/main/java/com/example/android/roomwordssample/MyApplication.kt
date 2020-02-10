@@ -15,6 +15,6 @@ open class MyApplication : Application(){
     open fun initializeComponent(): AppComponent {
          return DaggerAppComponent
                  .factory()
-                 .create(StorageModule(applicationContext), applicationContext)
+                 .create(applicationContext)
     }
 }

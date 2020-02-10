@@ -17,16 +17,18 @@ package com.example.android.roomwordssample
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
+import com.example.android.roomwordssample.storage.Storage
 import javax.inject.Inject
 
 /**
  * Abstracted Repository as promoted by the Architecture Guide.
  * https://developer.android.com/topic/libraries/architecture/guide.html
  */
-class WordRepository @Inject constructor(private val wordDao: WordDao) {
+class WordRepository @Inject constructor(private val databaseStorage: Storage) {
 
     // Room executes all queries on a separate thread.
     // Observed LiveData will notify the observer when the data has changed.
+    val wordDao = databaseStorage.getWordDao()
     val allWords: LiveData<List<Word>> = wordDao.getAlphabetizedWords()
 
     suspend fun insert(word: Word) {
