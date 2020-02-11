@@ -18,7 +18,6 @@ class DatabaseStorage @Inject constructor(val context : Context) : Storage {
     // .addCallback(WordRoomDatabase.Companion.WordDatabaseCallback(CoroutineScope(Dispatchers.IO)))
     .build()
 
-
     override fun getWordDao(): WordDao {
         return localDatabase.wordDao()
     }

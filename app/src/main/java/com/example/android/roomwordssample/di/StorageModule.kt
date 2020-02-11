@@ -16,10 +16,6 @@ import kotlinx.coroutines.Dispatchers
 abstract class StorageModule {
 
     // Makes Dagger provide WordDao from Room database when it is requested
-
     @Binds
     abstract fun provideStorage(storage : DatabaseStorage) : Storage
-
-
-
 }
